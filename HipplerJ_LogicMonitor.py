@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 """
 Author: James Hippler (HipplerJ)
 Organization: LogicMonitor, Inc.
