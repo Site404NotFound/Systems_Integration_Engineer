@@ -17,6 +17,16 @@ RETURN JSON EXAMPLE FROM JSONPlaceholder
      "title": "et fugit quas eum in in aperiam quod",
      "body": "id velit blanditiis\neum ea voluptatem\nmolestiae sint occaecati est eos perspiciatis\nincidunt a error provident eaque aut aut qui"
    },
+
+JAVA VERSION:
+java -version
+java version "1.8.0_191"
+Java(TM) SE Runtime Environment (build 1.8.0_191-b12)
+Java HotSpot(TM) 64-Bit Server VM (build 25.191-b12, mixed mode)
+
+GROOVY VERSION:
+groovy -v
+Groovy Version: 2.5.4 JVM: 1.8.0_191 Vendor: Oracle Corporation OS: Mac OS X
 */
 
 // Import JsonSlurper to parse text into meaningful data.
