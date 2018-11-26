@@ -10,12 +10,37 @@ Completed: Monday, November 26, 2018
 
 Filename: HipplerJ_LogicMonitor.groovy
 
-RETURN JSON EXAMPLE FROM JSONPlaceholder
+RETURN JSON EXAMPLE FROM JSONPlaceholder for Blog Posts
   {
      "userId": 7,
      "id": 64,
      "title": "et fugit quas eum in in aperiam quod",
      "body": "id velit blanditiis\neum ea voluptatem\nmolestiae sint occaecati est eos perspiciatis\nincidunt a error provident eaque aut aut qui"
+   },
+
+RETURN JSON EXAMPLE FROM JSONPlaceholder for Users
+   {
+     "id": 8,
+     "name": "Nicholas Runolfsdottir V",
+     "username": "Maxime_Nienow",
+     "email": "Sherwood@rosamond.me",
+     "address": {
+       "street": "Ellsworth Summit",
+       "suite": "Suite 729",
+       "city": "Aliyaview",
+       "zipcode": "45169",
+       "geo": {
+         "lat": "-14.3990",
+         "lng": "-120.7677"
+       }
+     },
+     "phone": "586.493.6943 x140",
+     "website": "jacynthe.com",
+     "company": {
+       "name": "Abernathy Group",
+       "catchPhrase": "Implemented secondary concept",
+       "bs": "e-enable extensible e-tailers"
+     }
    },
 
 JAVA VERSION:
@@ -81,18 +106,19 @@ for(users in user_list) {
 }
 
 // Generate the report both to the console and to a file
+// No order was specified in the intructions for outputting results.  Output by user id
 println("RESULTS HAVE ALSO BEEN LOGGED TO \'$log_report\' IN THE CURRENT DIRECTORY\n")
 log_report.write ""
 for(userId in id_list) {
-  def length = post_ids[userId].size()                      // Clear file HipplerJ_Log_Report.txt to replace with new report information
+  def length = post_ids[userId].size()                                      // Clear file HipplerJ_Log_Report.txt to replace with new report information
   log_report << "***** User Name: ${user_names[userId]} *****\n"            // Write the current UserID to the file (HipplerJ_Log_Report.txt)
   println("***** User Name: ${user_names[userId]} *****")                   // Print the current UserID
   log_report << "Number of Posts Starting with 's': ${num_posts[userId]}\n" // Write the number of posts starting with 's' for the current userID to the file (HipplerJ_Log_Report.txt)
-  println("Number of Posts Starting with 's': ${num_posts[userId]}") // Print the number of posts starting with 's' for the current userID
-  for(int i = 0; i < length; i ++) {                        // Loop through each post id associated with the current user
-    log_report << "- Post #${i + 1} (ID ${post_ids[userId][i]}): ${user_titles[userId][i]}\n" // Write the title and title id to the file (HipplerJ_Log_Report.txt)
-    println("- Post #${i + 1} (ID ${post_ids[userId][i]}): ${user_titles[userId][i]}") // Print the title and the title id
+  println("Number of Posts Starting with 's': ${num_posts[userId]}")        // Print the number of posts starting with 's' for the current userID
+  for(int i = 0; i < length; i ++) {                                        // Loop through each post id associated with the current user
+    log_report << "- Post #${i + 1} (ID ${post_ids[userId][i]}): ${user_titles[userId][i]}\n"   // Write the title and title id to the file (HipplerJ_Log_Report.txt)
+    println("- Post #${i + 1} (ID ${post_ids[userId][i]}): ${user_titles[userId][i]}")          // Print the title and the title id
   }
-  log_report << "\n"                                        // Write a new line to the file (HipplerJ_Log_Report.txt)
-  println()                                                 // Print a new line to maintain spacing
+  log_report << "\n"                                                        // Write a new line to the file (HipplerJ_Log_Report.txt)
+  println()                                                                 // Print a new line to maintain spacing
 }
